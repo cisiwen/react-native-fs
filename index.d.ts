@@ -264,6 +264,11 @@ export function appendFile(
 	encodingOrOptions?: string
 ): Promise<void>
 
+export function appendFileWithoutBase64(
+	filepath: string,
+	contents: string
+): Promise<void>
+
 export function write(
 	filepath: string,
 	contents: string,

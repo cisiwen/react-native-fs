@@ -185,6 +185,22 @@ public class RNFSManager extends ReactContextBaseJavaModule {
     }
   }
 
+
+  
+  @ReactMethod
+  public void appendFileWithoutBase64(String filepath, String content, Promise promise) {
+    try {
+      OutputStream outputStream = getOutputStream(filepath, true);
+      outputStream.write(content.getBytes());
+      outputStream.close();
+
+      promise.resolve(null);
+    } catch (Exception ex) {
+      ex.printStackTrace();
+      reject(promise, filepath, ex);
+    }
+  }
+
   @ReactMethod
   public void write(String filepath, String base64Content, int position, Promise promise) {
     try {

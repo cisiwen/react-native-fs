@@ -460,6 +460,10 @@ var RNFS = {
     return RNFSManager.appendFile(normalizeFilePath(filepath), b64);
   },
 
+  appendFileWithoutBase64(filepath: string, contents: string): Promise<void> {
+    return RNFSManager.appendFileWithoutBase64(normalizeFilePath(filepath), contents);
+  },
+
   write(filepath: string, contents: string, position?: number, encodingOrOptions?: any): Promise<void> {
     var b64;
 
